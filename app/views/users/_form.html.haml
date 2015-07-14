@@ -4,8 +4,9 @@
       = f.label :name
       = f.text_field :name, class: 'form-control'
       = f.fields_for :phones do |phone_f|
-        = phone_f.label :phone_number
-        = phone_f.text_field :number, class: 'form-control'
+        = render 'phone_fields', f: phone_f
+      .links
+        = link_to_add_association 'add phone', f, :phones
       = f.fields_for :address do |address_f|
         = address_f.label :line1
         = address_f.text_field :line1, class: 'form-control'
