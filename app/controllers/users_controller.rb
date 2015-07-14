@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   respond_to :html
 
   def index
-  	@users = User.all.includes(:phones, :address)
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).includes(:phones, :address)
   	respond_with(@users)
   end
 

@@ -1,0 +1,4 @@
+= search_form_for @q do |f|
+  = f.label :name
+  = f.search_field :name_or_phones_number_or_address_line1_or_address_zip_cont, placeholder: 'Search by user name, phone number, address line and address zip'
+  = f.submit

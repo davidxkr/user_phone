@@ -8,10 +8,22 @@ describe UsersController do
       expect(response).to render_template :index
     end
 
-    it "populates an array of all users" do
-      user = create(:user)
-      get :index
-      expect(assigns(:users)).to match_array([user])
+    context 'with params[:q]' do
+      it "populates an array of all users" do
+        user = create(:user, name: 'David')
+        create(:user, name: 'alex')
+        get :index, q: {name_cont: 'david'}
+        expect(assigns(:users)).to match_array([user])
+      end
+    end
+
+    context 'without params[:q]' do
+      it "populates an array of all users" do
+        user = create(:user)
+        user2 = create(:user)
+        get :index
+        expect(assigns(:users)).to match_array([user, user2])
+      end
     end
   end
 
