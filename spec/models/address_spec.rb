@@ -1,5 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Address, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Address, 'Attributes' do
+  it { respond_to :line1 }
+  it { respond_to :zip }
+  it { respond_to :user_id }
+end
+
+describe Address, 'Relations' do
+  it { expect(subject).to belong_to(:user) }
 end

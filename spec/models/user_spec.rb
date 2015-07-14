@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe User, 'Attributes' do
+  it { respond_to :name }
+end
+
+describe User, 'Relations' do
+  it { expect(subject).to have_many(:phones) }
+  it { expect(subject).to have_one(:address) }
 end

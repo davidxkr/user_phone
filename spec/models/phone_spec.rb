@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Phone, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Phone, 'Attributes' do
+  it { respond_to :number }
+  it { respond_to :user_id }
+end
+
+describe Phone, 'Relations' do
+  it { expect(subject).to belong_to(:user) }
 end
