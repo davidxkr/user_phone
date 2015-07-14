@@ -1,9 +1,15 @@
-= form_for(@user) do |f|
-  = f.text_field :name
-  = f.fields_for :phones do |phone_f|
-    = phone_f.text_field :number
-  = f.fields_for :address do |address_f|
-    = address_f.text_field :line1
-    = address_f.text_field :zip
+.row
+  .col-md-6
+    = form_for(@user) do |f|
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+      = f.fields_for :phones do |phone_f|
+        = phone_f.label :phone_number
+        = phone_f.text_field :number, class: 'form-control'
+      = f.fields_for :address do |address_f|
+        = address_f.label :line1
+        = address_f.text_field :line1, class: 'form-control'
+        = address_f.label :zip
+        = address_f.text_field :zip, class: 'form-control'
  
-  = f.submit
+      = f.submit
