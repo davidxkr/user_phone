@@ -1,0 +1,12 @@
+%tr
+  %td= user.id
+  %td= user.name
+  %td= user.phones.map(&:number).join(',')
+  %td= user.address_line1
+  %td= user.address_zip
+  %td
+    = link_to 'Edit', edit_user_path(user)
+    |
+    = link_to 'Show', user_path(user)
+    |
+    = link_to 'Delete', user_path(user), method: :delete

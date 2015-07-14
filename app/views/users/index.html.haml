@@ -1,8 +1,12 @@
-%ul
-  - @users.each do |user|
-    %li
-      = user.name
-      %ul
-        - user.phones.each do |user_phone|
-          %li
-            = user_phone.number
+= link_to 'New', new_user_path
+%table
+  %thead
+    %tr
+      %th id
+      %th Name
+      %th Phone Numbers
+      %th Address Line
+      %th Address Zip
+      %th Actions
+  %tbody
+    = render @users

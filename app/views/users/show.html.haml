@@ -1,0 +1,10 @@
+%h3 User Show
+%dl
+  %dt User Name:
+  %dd= @user.name
+  %dt Phones:
+  %dd= @user.phones.map(&:number).join(',')
+  %dt Address:
+  %dd= "#{@user.address_line1}, #{@user.address_zip}"
+
+= link_to 'Back', users_path
